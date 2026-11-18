@@ -80,9 +80,72 @@ def p3(a3, d):
 	print('Error', a3, d)
 
 errors = {
-	'ab': '',
-	'en': '',
-	'wl': ''
+	'ab': {
+		"name": "Scotland",
+		"capital": {
+			"name": "Edinburgh",
+			"coords": [55.9, -3.2]
+		},
+		"flag": {
+			"colors": ["#005eb8", "#ffffff"],
+			"desc": "The flag of Scotland features a white diagonal cross, known as the Saltire, stretching from corner to corner across a blue field."
+		},
+		"location": {
+			"region": "Europe",
+			"subregion": "Northern Europe",
+			"continents": ["Europe"],
+			"coords": [57, -4],
+			"borders": ["en"],
+			"landlocked": false,
+			"area": 80231
+		},
+		"languages": [["en", "English"]],
+		"timezones": ["UTC", "UTC+01:00"]
+	},
+	'en': {
+		"name": "",
+		"capital": {
+			"name": "",
+			"coords": []
+		},
+		"flag": {
+			"colors": ["", ""],
+			"desc": "The flag of England features a bold red cross, known as St George’s Cross, centered on a white field."
+		},
+		"location": {
+			"region": "Europe",
+			"subregion": "Northern Europe",
+			"continents": ["Europe"],
+			"coords": [52, -1],
+			"borders": ["ab", "wl"],
+			"landlocked": false,
+			"area": 132932
+		},
+		"languages": [["en", "English"]],
+		"timezones": ["UTC", "UTC+01:00"]
+	},
+	'wl': {
+		"name": "",
+		"capital": {
+			"name": "",
+			"coords": []
+		},
+		"flag": {
+			"colors": ["", ""],
+			"desc": "The flag of Wales features a red dragon striding across a horizontal field of white above green."
+		},
+		"location": {
+			"region": "Europe",
+			"subregion": "Northern Europe",
+			"continents": ["Europe"],
+			"coords": [52, -5],
+			"borders": ["en"],
+			"landlocked": false,
+			"area": 21218
+		},
+		"languages": [["en", "English"]],
+		"timezones": ["UTC", "UTC+01:00"]
+	}
 }
 
 for i in data:
