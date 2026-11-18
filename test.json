@@ -1,1 +1,200 @@
-{"names": {"alternates": ["Kyrgyz Respublikasy"], "common": "Kyrgyzstan", "native": {"kir": {"common": "Кыргызстан", "official": "Кыргыз Республикасы"}, "rus": {"common": "Киргизия", "official": "Кыргызская Республика"}}, "official": "Kyrgyz Republic", "translations": {"ara": {"common": "قيرغيزستان", "official": "الجمهورية القيرغيزية"}, "bre": {"common": "Kirgizstan", "official": "Republik Kirgiz"}, "ces": {"common": "Kyrgyzstán", "official": "Kyrgyzská republika"}, "cym": {"common": "Kyrgyzstan", "official": "Kyrgyz Republic"}, "deu": {"common": "Kirgisistan", "official": "Kirgisische Republik"}, "est": {"common": "Kõrgõzstan", "official": "Kirgiisi Vabariik"}, "fas": {"common": "قرقیزستان", "official": "جمهوری قِرقیزستان"}, "fin": {"common": "Kirgisia", "official": "Kirgisian tasavalta"}, "fra": {"common": "Kirghizistan", "official": "République kirghize"}, "hrv": {"common": "Kirgistan", "official": "Kirgistanu"}, "hun": {"common": "Kirgizisztán", "official": "Kirgiz Köztársaság"}, "ind": {"common": "Kirgizstan", "official": "Republik Kirgiz"}, "ita": {"common": "Kirghizistan", "official": "Kirghizistan"}, "jpn": {"common": "キルギス", "official": "キルギス共和国"}, "kor": {"common": "키르기스스탄", "official": "키르기스 공화국"}, "nld": {"common": "Kirgizië", "official": "Kirgizische Republiek"}, "pol": {"common": "Kirgistan", "official": "Republika Kirgiska"}, "por": {"common": "Quirguistão", "official": "República do Quirguistão"}, "rus": {"common": "Киргизия", "official": "Кыргызская Республика"}, "slk": {"common": "Kirgizsko", "official": "Kirgizská republika"}, "spa": {"common": "Kirguizistán", "official": "República Kirguisa"}, "srp": {"common": "Киргизија", "official": "Киргиска Република"}, "swe": {"common": "Kirgizistan", "official": "Republiken Kirgizistan"}, "tur": {"common": "Kırgızistan", "official": "Kırgızistan Cumhuriyeti"}, "urd": {"common": "کرغیزستان", "official": "جمہوریہ کرغیزستان"}, "zho": {"common": "吉尔吉斯斯坦", "official": "吉尔吉斯斯坦共和国"}}}, "codes": {"alpha_2": "KG", "alpha_3": "KGZ", "ccn3": "417", "cioc": "KGZ", "fifa": "KGZ", "fips": "KG", "gec": "KG"}, "capitals": [{"attributes": {"administrative": false, "constitutional": false, "executive": false, "judicial": false, "legislative": false, "primary": true}, "coordinates": {"lat": 42.87, "lng": 74.6}, "name": "Bishkek"}], "flag": {"colors": {"dominant": "#fff900", "palette": [{"hex": "#fff900", "proportion": 0.04362160791275679}, {"hex": "#ff181b", "proportion": 0.9051483641897032}, {"hex": "#ffd403", "proportion": 0.02003550595992899}, {"hex": "#ff9000", "proportion": 0.015977681968044635}, {"hex": "#ff6e00", "proportion": 0.001014455997971088}, {"hex": "#ff6525", "proportion": 0.003296981993406036}, {"hex": "#fe5600", "proportion": 0.005579507988840984}, {"hex": "#fe4600", "proportion": 0.005325893989348212}], "prominent": "#ff181b", "swatches": {"dark_muted": null, "dark_vibrant": null, "light_muted": "#fff900", "light_vibrant": "#ffd403", "muted": "#ff9000", "vibrant": "#ff181b"}}, "description": "The flag of Kyrgyzstan features a yellow sun with forty rays at the center of a red field. At the center of the sun is a stylized depiction of a tunduk.", "emoji": "🇰🇬", "html_entity": "&#127472;&#127468;", "unicode": "U+1F1F0 U+1F1EC", "url_png": "https://flags.restcountries.com/v5/w640/kg.png", "url_svg": "https://flags.restcountries.com/v5/svg/kg.svg"}, "region": "Asia", "subregion": "Central Asia", "area": {"kilometers": 199951, "miles": 77201.5}, "assets": [], "borders": ["CHN", "KAZ", "TJK", "UZB"], "calling_codes": ["996"], "cars": {"driving_side": "right", "signs": ["KS"]}, "classification": {"dependency": false, "dependency_type": "", "disputed": false, "iso_status": "official", "sovereign": true, "un_member": true, "un_observer": false}, "continents": ["Asia"], "coordinates": {"lat": 41, "lng": 75}, "currencies": [{"code": "KGS", "name": "Kyrgyzstani som", "symbol": "с"}], "date": {"academic_year_start": {"day": 1, "month": 9}, "fiscal_year_start": {"corporate": {"basis": "convention", "day": 1, "month": 1}, "government": {"day": 1, "month": 1}, "personal": {"day": 1, "month": 1}}, "start_of_week": "monday"}, "demonyms": {"eng": {"f": "Kirghiz", "m": "Kirghiz"}, "fra": {"f": "Kirghize", "m": "Kirghize"}}, "descriptions": {"long": "Kyrgyzstan is a republic with Bishkek as its capital and Kyrgyz and Russian as official languages, and mountains cover most of it. The som is the currency, and gold mining, remittances and re-export trade lead its foreign earnings.", "short": "Kyrgyzstan is a landlocked Central Asian republic covered largely by the Tian Shan mountains."}, "economy": {"gini_coefficient": {"2020": 29, "2021": 28.8, "2022": 26.4, "2023": 27.2, "2024": 27.5}}, "government_type": "Unitary presidential republic", "landlocked": true, "languages": [{"bcp47": "ky", "iso639_1": "ky", "iso639_2b": "kir", "iso639_2t": "kir", "iso639_3": "kir", "name": "Kyrgyz", "native_name": "Кыргызча"}, {"bcp47": "ru", "iso639_1": "ru", "iso639_2b": "rus", "iso639_2t": "rus", "iso639_3": "rus", "name": "Russian", "native_name": "русский"}], "leaders": [{"message": "data.leaders is only available on paid plans. Go to https://restcountries.com/plans to make updates to your account.", "sample": "https://files-03.restcountries.com/countries.00/sample.leaders.json"}], "links": {"google_maps": "https://goo.gl/maps/SKG8BSMMQVvxkRkB7", "official": "https://www.gov.kg", "open_street_maps": "https://www.openstreetmap.org/relation/178009", "wikipedia": "https://en.wikipedia.org/wiki/Kyrgyzstan"}, "memberships": {"african_union": false, "arab_league": false, "asean": false, "brics": false, "commonwealth": false, "eu": false, "eurozone": false, "g20": false, "g7": false, "nato": false, "oecd": false, "opec": false, "schengen": false, "un": true}, "number_format": {"decimal_separator": ",", "thousands_separator": "."}, "parent": {"alpha_2": "", "alpha_3": ""}, "population": 7404300, "postal_code": {"format": "######", "regex": "^(\\d{6})$"}, "timezones": ["UTC+06:00"], "tlds": [".kg"], "units": {"measurement_system": "metric", "temperature_scale": "Celsius"}, "uuid": "96cbc983-3aeb-4ca9-8b29-a5fa8a8485fe", "_match": [{"path": "codes.alpha_2", "value": "KG"}], "_meta": {"lastUpdatedTimestamp": 1792405003}}
+{
+  "names": {
+    "alternates": ["Kyrgyz Respublikasy"],
+    "common": "Kyrgyzstan",
+    "native": {
+      "kir": { "common": "Кыргызстан", "official": "Кыргыз Республикасы" },
+      "rus": { "common": "Киргизия", "official": "Кыргызская Республика" }
+    },
+    "official": "Kyrgyz Republic",
+    "translations": {
+      "ara": { "common": "قيرغيزستان", "official": "الجمهورية القيرغيزية" },
+      "bre": { "common": "Kirgizstan", "official": "Republik Kirgiz" },
+      "ces": { "common": "Kyrgyzstán", "official": "Kyrgyzská republika" },
+      "cym": { "common": "Kyrgyzstan", "official": "Kyrgyz Republic" },
+      "deu": { "common": "Kirgisistan", "official": "Kirgisische Republik" },
+      "est": { "common": "Kõrgõzstan", "official": "Kirgiisi Vabariik" },
+      "fas": { "common": "قرقیزستان", "official": "جمهوری قِرقیزستان" },
+      "fin": { "common": "Kirgisia", "official": "Kirgisian tasavalta" },
+      "fra": { "common": "Kirghizistan", "official": "République kirghize" },
+      "hrv": { "common": "Kirgistan", "official": "Kirgistanu" },
+      "hun": { "common": "Kirgizisztán", "official": "Kirgiz Köztársaság" },
+      "ind": { "common": "Kirgizstan", "official": "Republik Kirgiz" },
+      "ita": { "common": "Kirghizistan", "official": "Kirghizistan" },
+      "jpn": { "common": "キルギス", "official": "キルギス共和国" },
+      "kor": { "common": "키르기스스탄", "official": "키르기스 공화국" },
+      "nld": { "common": "Kirgizië", "official": "Kirgizische Republiek" },
+      "pol": { "common": "Kirgistan", "official": "Republika Kirgiska" },
+      "por": {
+        "common": "Quirguistão",
+        "official": "República do Quirguistão"
+      },
+      "rus": { "common": "Киргизия", "official": "Кыргызская Республика" },
+      "slk": { "common": "Kirgizsko", "official": "Kirgizská republika" },
+      "spa": { "common": "Kirguizistán", "official": "República Kirguisa" },
+      "srp": { "common": "Киргизија", "official": "Киргиска Република" },
+      "swe": { "common": "Kirgizistan", "official": "Republiken Kirgizistan" },
+      "tur": { "common": "Kırgızistan", "official": "Kırgızistan Cumhuriyeti" },
+      "urd": { "common": "کرغیزستان", "official": "جمہوریہ کرغیزستان" },
+      "zho": { "common": "吉尔吉斯斯坦", "official": "吉尔吉斯斯坦共和国" }
+    }
+  },
+  "codes": {
+    "alpha_2": "KG",
+    "alpha_3": "KGZ",
+    "ccn3": "417",
+    "cioc": "KGZ",
+    "fifa": "KGZ",
+    "fips": "KG",
+    "gec": "KG"
+  },
+  "capitals": [
+    {
+      "attributes": {
+        "administrative": false,
+        "constitutional": false,
+        "executive": false,
+        "judicial": false,
+        "legislative": false,
+        "primary": true
+      },
+      "coordinates": { "lat": 42.87, "lng": 74.6 },
+      "name": "Bishkek"
+    }
+  ],
+  "flag": {
+    "colors": {
+      "dominant": "#fff900",
+      "palette": [
+        { "hex": "#fff900", "proportion": 0.04362160791275679 },
+        { "hex": "#ff181b", "proportion": 0.9051483641897032 },
+        { "hex": "#ffd403", "proportion": 0.02003550595992899 },
+        { "hex": "#ff9000", "proportion": 0.015977681968044635 },
+        { "hex": "#ff6e00", "proportion": 0.001014455997971088 },
+        { "hex": "#ff6525", "proportion": 0.003296981993406036 },
+        { "hex": "#fe5600", "proportion": 0.005579507988840984 },
+        { "hex": "#fe4600", "proportion": 0.005325893989348212 }
+      ],
+      "prominent": "#ff181b",
+      "swatches": {
+        "dark_muted": null,
+        "dark_vibrant": null,
+        "light_muted": "#fff900",
+        "light_vibrant": "#ffd403",
+        "muted": "#ff9000",
+        "vibrant": "#ff181b"
+      }
+    },
+    "description": "The flag of Kyrgyzstan features a yellow sun with forty rays at the center of a red field. At the center of the sun is a stylized depiction of a tunduk.",
+    "emoji": "🇰🇬",
+    "html_entity": "&#127472;&#127468;",
+    "unicode": "U+1F1F0 U+1F1EC",
+    "url_png": "https://flags.restcountries.com/v5/w640/kg.png",
+    "url_svg": "https://flags.restcountries.com/v5/svg/kg.svg"
+  },
+  "region": "Asia",
+  "subregion": "Central Asia",
+  "area": { "kilometers": 199951, "miles": 77201.5 },
+  "assets": [],
+  "borders": ["CHN", "KAZ", "TJK", "UZB"],
+  "calling_codes": ["996"],
+  "cars": { "driving_side": "right", "signs": ["KS"] },
+  "classification": {
+    "dependency": false,
+    "dependency_type": "",
+    "disputed": false,
+    "iso_status": "official",
+    "sovereign": true,
+    "un_member": true,
+    "un_observer": false
+  },
+  "continents": ["Asia"],
+  "coordinates": { "lat": 41, "lng": 75 },
+  "currencies": [{ "code": "KGS", "name": "Kyrgyzstani som", "symbol": "с" }],
+  "date": {
+    "academic_year_start": { "day": 1, "month": 9 },
+    "fiscal_year_start": {
+      "corporate": { "basis": "convention", "day": 1, "month": 1 },
+      "government": { "day": 1, "month": 1 },
+      "personal": { "day": 1, "month": 1 }
+    },
+    "start_of_week": "monday"
+  },
+  "demonyms": {
+    "eng": { "f": "Kirghiz", "m": "Kirghiz" },
+    "fra": { "f": "Kirghize", "m": "Kirghize" }
+  },
+  "descriptions": {
+    "long": "Kyrgyzstan is a republic with Bishkek as its capital and Kyrgyz and Russian as official languages, and mountains cover most of it. The som is the currency, and gold mining, remittances and re-export trade lead its foreign earnings.",
+    "short": "Kyrgyzstan is a landlocked Central Asian republic covered largely by the Tian Shan mountains."
+  },
+  "economy": {
+    "gini_coefficient": {
+      "2020": 29,
+      "2021": 28.8,
+      "2022": 26.4,
+      "2023": 27.2,
+      "2024": 27.5
+    }
+  },
+  "government_type": "Unitary presidential republic",
+  "landlocked": true,
+  "languages": [
+    {
+      "bcp47": "ky",
+      "iso639_1": "ky",
+      "iso639_2b": "kir",
+      "iso639_2t": "kir",
+      "iso639_3": "kir",
+      "name": "Kyrgyz",
+      "native_name": "Кыргызча"
+    },
+    {
+      "bcp47": "ru",
+      "iso639_1": "ru",
+      "iso639_2b": "rus",
+      "iso639_2t": "rus",
+      "iso639_3": "rus",
+      "name": "Russian",
+      "native_name": "русский"
+    }
+  ],
+  "leaders": [
+    {
+      "message": "data.leaders is only available on paid plans. Go to https://restcountries.com/plans to make updates to your account.",
+      "sample": "https://files-03.restcountries.com/countries.00/sample.leaders.json"
+    }
+  ],
+  "links": {
+    "google_maps": "https://goo.gl/maps/SKG8BSMMQVvxkRkB7",
+    "official": "https://www.gov.kg",
+    "open_street_maps": "https://www.openstreetmap.org/relation/178009",
+    "wikipedia": "https://en.wikipedia.org/wiki/Kyrgyzstan"
+  },
+  "memberships": {
+    "african_union": false,
+    "arab_league": false,
+    "asean": false,
+    "brics": false,
+    "commonwealth": false,
+    "eu": false,
+    "eurozone": false,
+    "g20": false,
+    "g7": false,
+    "nato": false,
+    "oecd": false,
+    "opec": false,
+    "schengen": false,
+    "un": true
+  },
+  "number_format": { "decimal_separator": ",", "thousands_separator": "." },
+  "parent": { "alpha_2": "", "alpha_3": "" },
+  "population": 7404300,
+  "postal_code": { "format": "######", "regex": "^(\\d{6})$" },
+  "timezones": ["UTC+06:00"],
+  "tlds": [".kg"],
+  "units": { "measurement_system": "metric", "temperature_scale": "Celsius" },
+  "uuid": "96cbc983-3aeb-4ca9-8b29-a5fa8a8485fe",
+  "_match": [{ "path": "codes.alpha_2", "value": "KG" }],
+  "_meta": { "lastUpdatedTimestamp": 1792405003 }
+}

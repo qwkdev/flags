@@ -88,7 +88,7 @@ errors = {
 		},
 		"flag": {
 			"colors": ["#005eb8", "#ffffff"],
-			"desc": "The flag of Scotland features a white diagonal cross, known as the Saltire, stretching from corner to corner across a blue field."
+			"desc": "The flag of Scotland is the Saltire, a white diagonal cross on a blue field, said to have appeared in the sky in 832 AD after St Andrew, Scotland's patron saint."
 		},
 		"location": {
 			"region": "Europe",
@@ -96,21 +96,21 @@ errors = {
 			"continents": ["Europe"],
 			"coords": [57, -4],
 			"borders": ["en"],
-			"landlocked": false,
+			"landlocked": False,
 			"area": 80231
 		},
 		"languages": [["en", "English"]],
 		"timezones": ["UTC", "UTC+01:00"]
 	},
 	'en': {
-		"name": "",
+		"name": "England",
 		"capital": {
-			"name": "",
-			"coords": []
+			"name": "London",
+			"coords": [51.5, -0.1]
 		},
 		"flag": {
-			"colors": ["", ""],
-			"desc": "The flag of England features a bold red cross, known as St George’s Cross, centered on a white field."
+			"colors": ["#ffffff", "#ce1124"],
+			"desc": "The flag of England is the St George's Cross, a red cross on a white field, named for England's patron saint."
 		},
 		"location": {
 			"region": "Europe",
@@ -118,21 +118,21 @@ errors = {
 			"continents": ["Europe"],
 			"coords": [52, -1],
 			"borders": ["ab", "wl"],
-			"landlocked": false,
+			"landlocked": False,
 			"area": 132932
 		},
 		"languages": [["en", "English"]],
 		"timezones": ["UTC", "UTC+01:00"]
 	},
 	'wl': {
-		"name": "",
+		"name": "Wales",
 		"capital": {
-			"name": "",
-			"coords": []
+			"name": "Cardiff",
+			"coords": [51.5, -3.2]
 		},
 		"flag": {
-			"colors": ["", ""],
-			"desc": "The flag of Wales features a red dragon striding across a horizontal field of white above green."
+			"colors": ["#00ab39", "#d21034"],
+			"desc": "The flag of Wales is the red dragon on a green and white field, a symbol of Welsh sovereignty since the medieval period."
 		},
 		"location": {
 			"region": "Europe",
@@ -140,7 +140,7 @@ errors = {
 			"continents": ["Europe"],
 			"coords": [52, -5],
 			"borders": ["en"],
-			"landlocked": false,
+			"landlocked": False,
 			"area": 21218
 		},
 		"languages": [["en", "English"]],
