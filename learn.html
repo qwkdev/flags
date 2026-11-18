@@ -121,6 +121,15 @@ body::-webkit-scrollbar {
 	&[data-reset="1"] .card {
 		transition: none;
 	}
+	&[data-drag="1"] {
+		.card .front * {
+			visibility: visible;
+		}
+		#active {
+			cursor: grabbing;
+			transition: none;
+		}
+	}
 }
 
 .card {
@@ -141,8 +150,6 @@ body::-webkit-scrollbar {
 	transition: .1s;
 	transform-style: preserve-3d;
 
-	outline: 1px solid #f00;
-
 	>div {
 		position: absolute;
 		top: 0;
@@ -162,7 +169,9 @@ body::-webkit-scrollbar {
 		backface-visibility: hidden;
 		-webkit-backface-visibility: hidden;
 	}
-
+	.front * {
+		visibility: hidden;
+	}
 	.back {
 		transform: rotateY(180deg);
 	}
@@ -175,9 +184,8 @@ body::-webkit-scrollbar {
 	user-select: none;
 	transition: .3s;
 
-	&[data-drag="1"] {
-		cursor: grabbing;
-		transition: none;
+	.front * {
+		visibility: visible;
 	}
 }
 
@@ -203,13 +211,13 @@ body::-webkit-scrollbar {
 				<p>Back</p>
 			</div>
 		</div>
-		<div class="card" style="--n: 1;" id="second"><div class="front"></div></div>
+		<div class="card" style="--n: 1;" id="second"><div class="front"><p>hello</p></div></div>
 		<div class="card" style="--n: 2;"><div class="front"></div></div>
 		<div class="card" style="--n: 3;"><div class="front"></div></div>
 	</div>
 
 	<script>
-		const mtarget = 300;
+		const mtarget = 200;
 		const mflip = 50;
 
 		const cardqueue = document.getElementById('queue');
@@ -233,18 +241,18 @@ body::-webkit-scrollbar {
 		activecard.addEventListener('pointerdown', e => {
 			if (!active || cardqueue.dataset.ignore == '1') return;
 			start = e.clientX;
-			activecard.dataset.drag = '1';
+			cardqueue.dataset.drag = '1';
 		});
 		document.addEventListener('pointermove', e => {
-			if (activecard.dataset.drag != '1' || cardqueue.dataset.ignore == '1') return;
+			if (cardqueue.dataset.drag != '1' || cardqueue.dataset.ignore == '1') return;
 			let delta = e.clientX - start;
 			activecard.style.setProperty('--x', delta);
 			cardqueue.style.setProperty('--anim', Math.min(Math.abs(delta)/mtarget, 1));
 		});
 
 		const release = e => {
-			if (activecard.dataset.drag != '1' || cardqueue.dataset.ignore == '1') return;
-			activecard.dataset.drag = '0';
+			if (cardqueue.dataset.drag != '1' || cardqueue.dataset.ignore == '1') return;
+			cardqueue.dataset.drag = '0';
 
 			delta = e.clientX - start;
 			if (Math.abs(delta) >= mtarget) {
