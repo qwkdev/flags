@@ -343,7 +343,8 @@ body::-webkit-scrollbar {
 
 		function swipe(dir) {
 			if (dir == -1) {
-				flags.push(flags[current]);
+				flags = flags.slice(0, -1);
+				flags.push(flags[current], null);
 			}
 
 			cardqueue.dataset.ignore = '1';
