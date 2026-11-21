@@ -8,7 +8,7 @@
 	<style>
 :root {
 	--bg: #035;
-	--bgg: linear-gradient(to bottom, #035, #112);
+	--bgg: linear-gradient(to bottom, #035, #102);
 	--fg: #48d;
 
 	--text: #fff;
@@ -54,14 +54,16 @@ body::-webkit-scrollbar {
 	transition: .2s;
 
 	&:not(.nohover) {
-		&:hover {
+		&:hover, &:focus {
+			outline: none;
 			background: #f5f5ff21;
 			box-shadow: inset 0 calc(.8 * var(--h)) calc(.4 * var(--h)) calc(-.4 * var(--h)) #f5f5ff14;
 			border-top-color: #ffffff26;
 			transform: scale(1.02);
-		}
-		&:active {
-			transform: scale(0.97);
+
+			&:active {
+				transform: scale(0.97);
+			}
 		}
 	}
 }
@@ -90,6 +92,8 @@ body::-webkit-scrollbar {
 		color: var(--text);
 		font-family: Arial;
 		font-size: calc(2 * var(--u));
+		text-decoration: none;
+		font-variant-numeric: tabular-nums;
 
 		&::selection {
 			background: var(--text-s);
@@ -115,6 +119,7 @@ body::-webkit-scrollbar {
 		background: #000;
 		border: 1px solid var(--c);
 		text-decoration: none;
+		user-select: none;
 
 		margin: 0;
 		color: var(--c);
@@ -253,7 +258,7 @@ body::-webkit-scrollbar {
 </head>
 <body>
 	<div id="top">
-		<a>flags.qwk.gg</a>
+		<a href="https://flags.qwk.gg/">flags.qwk.gg</a>
 		<p class="nohover" id="info">Loading deck...</p>
 	</div>
 
@@ -276,9 +281,10 @@ body::-webkit-scrollbar {
 	</div>
 
 	<script>
-		const mtarget = 200;
-		const mflip = 50;
+		const mtarget = 0.1;
+		const mflip = 0.05;
 		let current = 0;
+		let done = 0;
 		let active = false;
 
 		const info = document.getElementById('info');
@@ -309,7 +315,7 @@ body::-webkit-scrollbar {
 			if (cardqueue.dataset.drag != '1' || cardqueue.dataset.ignore == '1') return;
 			let delta = e.clientX - start;
 			activecard.style.setProperty('--x', delta);
-			cardqueue.style.setProperty('--anim', Math.min(Math.abs(delta)/mtarget, 1));
+			cardqueue.style.setProperty('--anim', Math.min(Math.abs(delta)/(mtarget*window.innerHeight), 1));
 		});
 
 		let flags = [];
@@ -325,7 +331,7 @@ body::-webkit-scrollbar {
 				img.src = `/svg/${f[0]}.svg`;
 				img.draggable = false;
 				front.appendChild(img);
-			} else front.innerHTML = '<h2>Done!<br>Refresh to restart</h2>';
+			} else front.innerHTML = '<h2>Done!<br>Click to restart</h2>';
 
 			card.appendChild(front);
 
@@ -345,12 +351,12 @@ body::-webkit-scrollbar {
 			if (dir == -1) {
 				flags = flags.slice(0, -1);
 				flags.push(flags[current], null);
-			}
+			} else done++;
 
 			cardqueue.dataset.ignore = '1';
 			cardqueue.style.setProperty('--anim', 1);
 			activecard.style.setProperty('--x', window.innerWidth * dir);
-			setTimeout(async () => {
+			setTimeout(() => {
 				current++;
 				active = current < flags.length-1;
 				activecard.innerHTML = secondcard.innerHTML;
@@ -364,6 +370,7 @@ body::-webkit-scrollbar {
 					cardqueue.dataset.ignore = '0';
 				}, 50);
 
+				info.textContent = `Learning: ${setname} (${done}/${numflags})`;
 				if (current < flags.length-1) loadCard(current+1, secondcard);
 			}, 100);
 		}
@@ -373,11 +380,11 @@ body::-webkit-scrollbar {
 			cardqueue.dataset.drag = '0';
 
 			delta = e.clientX - start;
-			if (Math.abs(delta) >= mtarget) swipe(delta > 0 ? 1 : -1);
+			if (Math.abs(delta) >= (mtarget*window.innerHeight)) swipe(delta > 0 ? 1 : -1);
 			else {
 				activecard.style.setProperty('--x', 0);
 				cardqueue.style.setProperty('--anim', 0);
-				if (Math.abs(delta) <= mflip) activecard.dataset.flip = activecard.dataset.flip == '1' ? '0' : '1';
+				if (Math.abs(delta) <= (mflip*window.innerHeight)) activecard.dataset.flip = activecard.dataset.flip == '1' ? '0' : '1';
 			}
 		};
 		document.addEventListener('pointerup', release);
@@ -390,6 +397,7 @@ body::-webkit-scrollbar {
 			} else if ([37, 65].includes(e.keyCode)) swipe(-1);
 			else if ([39, 68].includes(e.keyCode)) swipe(1);
 		});
+		activecard.onclick = () => { if (!active) window.location.reload(); };
 
 		function showError(e) {
 			active = false;
@@ -401,13 +409,17 @@ body::-webkit-scrollbar {
 			console.error('Error:', e);
 		}
 
+		let setname;
+		let numflags;
 		const set = window.location.search.slice(1);
 		fetch('/sets.json').then(r => r.json()).then(sd => {
 			if (!Object.hasOwn(sd, set)) showError('Invalid Set');
 			fetch('/min_data.json').then(r => r.json()).then(d => {
-				info.textContent = 'Learning: ' + sd[set][0];
-
 				let todo = sd[set].slice(1);
+				numflags = todo.length;
+				setname = sd[set][0];
+				info.textContent = `Learning: ${setname} (${current}/${numflags})`;
+
 				let n = 0;
 				while (todo.length > 0 && n < 200) {
 					n++;
@@ -418,6 +430,7 @@ body::-webkit-scrollbar {
 				flags.push(null);
 
 				current = 0;
+				done = 0;
 				loadCard(current, activecard);
 				loadCard(current+1, secondcard);
 				active = true;

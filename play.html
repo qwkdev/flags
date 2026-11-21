@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Flag Guesser | Quiz</title>
+
+	<style>
+:root {
+	--bg: #035;
+	--bgg: linear-gradient(to bottom, #035, #102);
+	--fg: #48d;
+
+	--text: #fff;
+	--text-s: #fff5;
+
+	--u: 1.5vw;
+	--top-height: calc(6 * var(--u));
+	--bottom-height: calc(3 * var(--u));
+	--pad: calc(3 * var(--u));
+}
+*[hidden] {
+	display: none !important;
+}
+
+body {
+	margin: 0;
+	padding-top: calc(7 * var(--u));
+	overflow-x: hidden;
+	position: relative;
+	background-color: var(--bg);
+	background-image: var(--bgg);
+	height: max-content;
+	min-height: 100vh;
+	min-height: 100dvh;
+	box-sizing: border-box;
+
+    scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+	display: none;
+}
+
+#top a, #top p {
+	--h: 100px;
+	height: var(--h);
+	box-sizing: border-box;
+	background: #f5f5ff1c;
+	backdrop-filter: blur(20px);
+	border: calc(.2 * var(--u)) solid #ffffff1f;
+	border-radius: calc(2 * var(--u));
+	box-shadow: inset 0 calc(.8 * var(--h)) calc(.4 * var(--h)) calc(-.4 * var(--h)) #f5f5ff0f;
+
+	transition: .2s;
+
+	&:not(.nohover) {
+		&:hover, &:focus {
+			outline: none;
+			background: #f5f5ff21;
+			box-shadow: inset 0 calc(.8 * var(--h)) calc(.4 * var(--h)) calc(-.4 * var(--h)) #f5f5ff14;
+			border-top-color: #ffffff26;
+			transform: scale(1.02);
+
+			&:active {
+				transform: scale(0.97);
+			}
+		}
+	}
+}
+
+#top {
+	position: absolute;
+	top: calc(1 * var(--u));
+	left: calc(1 * var(--u));
+
+	display: flex;
+	gap: calc(1 * var(--u));
+
+	z-index: 999;
+
+	a, p {
+		width: max-content;
+		--h: calc(5 * var(--u));
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: calc(3 * var(--u));
+
+		padding: 0 calc(2.5 * var(--u));
+		margin: 0;
+		color: var(--text);
+		font-family: Arial;
+		font-size: calc(2 * var(--u));
+		text-decoration: none;
+		font-variant-numeric: tabular-nums;
+
+		&::selection {
+			background: var(--text-s);
+		}
+	}
+	a {
+		font-weight: 700;
+		user-select: none;
+	}
+}
+
+#bottom {
+	position: absolute;
+	bottom: calc(1 * var(--u));
+	right: calc(1 * var(--u));
+
+	display: flex;
+	flex-direction: row-reverse;
+	gap: calc(.7 * var(--u));
+
+	a {
+		--c: #777;
+		background: #000;
+		border: 1px solid var(--c);
+		text-decoration: none;
+		user-select: none;
+
+		margin: 0;
+		color: var(--c);
+		font-family: monospace;
+		font-size: calc(1.2 * var(--u));
+		line-height: calc(1.7 * var(--u));
+		padding: 0 calc(.5 * var(--u));
+		border-radius: calc(2 * var(--u));
+		transform-origin: center;
+		transition: .2s;
+
+		&:hover {
+			--c: #aaa;
+			transform: scale(1.03);
+		}
+		&:active {
+			transform: scale(0.95);
+		}
+	}
+}
+
+#queue {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	width: calc(60 * var(--u));
+	height: calc(42 * var(--u));
+
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	z-index: 1;
+
+	perspective: round(calc(120 * var(--u)), 1px);
+
+	&[data-reset="1"] .card {
+		transition: none;
+	}
+	&[data-drag="1"] #active {
+		cursor: grabbing;
+		transition: none;
+	}
+}
+
+.card {
+	--n: 0;
+	--x: 0;
+	display: inline-block;
+
+	width: 100%;
+	height: calc(40 * var(--u));
+
+	position: absolute;
+	box-sizing: border-box;
+
+	z-index: calc(4 - var(--n));
+	--t: translate(calc(var(--x)*1px), calc(3 * var(--u) * (var(--n) - var(--anim)))) rotate(calc(var(--x) * .02deg)) scale(calc(1 - .1 * (var(--n) - var(--anim))), calc(1 - .07 * (var(--n) - var(--anim))));
+	transform: var(--t);
+	opacity: calc(1 - (1/9 * (var(--n) - var(--anim))*(var(--n) - var(--anim))));
+	transition: .1s;
+	transform-style: preserve-3d;
+
+	>div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		inset: 0;
+
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+
+		overflow: hidden;
+
+		background: var(--fg);
+		border-radius: calc(2 * var(--u));
+
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+
+		h2 {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+
+			width: 100%;
+			text-align: center;
+			box-sizing: border-box;
+			padding: 0 calc(3 * var(--u));
+
+			font-size: calc(5 * var(--u));
+			font-weight: 700;
+		}
+		h2, p {
+			margin: 0;
+			font-family: Arial;
+			color: var(--text);
+		}
+	}
+	.front {
+		img {
+			height: 100%;
+			width: auto;
+			max-width: 100%;
+			object-fit: fill;
+
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+	.back {
+		padding: calc(3 * var(--u));
+		transform: rotateY(180deg);
+	}
+	&[data-flip="1"] {
+		transform: var(--t) rotateY(180deg);
+	}
+}
+#active {
+	cursor: grab;
+	user-select: none;
+	transition: .4s;
+}
+
+@media screen and (min-aspect-ratio: 2/3) {
+	:root {
+		--u: 1vh;
+	}
+}
+	</style>
+</head>
+<body>
+	<div id="top">
+		<a href="https://flags.qwk.gg/">flags.qwk.gg</a>
+		<p class="nohover" id="info">Loading deck...</p>
+	</div>
+
+	<div id="queue" style="--anim: 0;">
+		<div class="card" style="--n: 0; --anim: 0;" data-flip="0" id="active">
+			<div class="front">
+				<h2>Loading...</h2>
+			</div>
+			<div class="back">
+				<h2>Saint Vincent and the Grenadines</h2>
+			</div>
+		</div>
+		<div class="card" style="--n: 1;" id="second"><div class="front"><p>hello</p></div></div>
+		<div class="card" style="--n: 2;"><div class="front"></div></div>
+		<div class="card" style="--n: 3;"><div class="front"></div></div>
+	</div>
+
+	<div id="bottom">
+		<a href="https://qwk.gg/" target="_blank">qwk.gg</a>
+	</div>
+
+	<script>
+		const mtarget = 0.1;
+		let current = 0;
+		let active = false;
+
+		const info = document.getElementById('info');
+		const cardqueue = document.getElementById('queue');
+
+		async function wait(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		}
+		async function anim() {
+			for (let n = 1; n <= 100; n++) {
+				cardqueue.style.setProperty('--anim', n/100);
+				await wait(10);
+			}
+			await wait(10);
+			cardqueue.style.setProperty('--anim', 0/100);
+		}
+
+		const activecard = document.getElementById('active');
+		const secondcard = document.getElementById('second');
+
+		let start;
+		activecard.addEventListener('pointerdown', e => {
+			if (!active || cardqueue.dataset.ignore == '1' || activecard.dataset.flip == '0') return;
+			start = e.clientX;
+			cardqueue.dataset.drag = '1';
+		});
+		document.addEventListener('pointermove', e => {
+			if (cardqueue.dataset.drag != '1' || cardqueue.dataset.ignore == '1' || activecard.dataset.flip == '0') return;
+			let delta = e.clientX - start;
+			activecard.style.setProperty('--x', delta);
+			cardqueue.style.setProperty('--anim', Math.min(Math.abs(delta)/(mtarget*window.innerHeight), 1));
+		});
+
+		let flags = [];
+
+		function loadCard(fi, card, score=false) {
+			const f = flags[fi];
+			card.innerHTML = '';
+			const front = document.createElement('div');
+			front.classList.add('front');
+			
+			if (f) {
+				const img = document.createElement('img');
+				img.src = `/svg/${f[0]}.svg`;
+				img.draggable = false;
+				front.appendChild(img);
+			} else front.innerHTML = '<h2>' + (score ? `${correct}/${current}` : `${correct+1}/${current+1}`) + '<br>Click to restart</h2>';
+
+			card.appendChild(front);
+
+			if (f) {
+				const back = document.createElement('div');
+				back.classList.add('back');
+
+				const name = document.createElement('h2');
+				name.textContent = f[1][0];
+				back.appendChild(name);
+
+				card.appendChild(back);
+			}
+		}
+
+		let correct = 0;
+		function swipe(dir) {
+			if (activecard.dataset.flip == '0') return;
+			if (dir == 1) correct++;
+
+			cardqueue.dataset.ignore = '1';
+			cardqueue.style.setProperty('--anim', 1);
+			activecard.style.setProperty('--x', window.innerWidth * dir);
+			setTimeout(() => {
+				current++;
+				active = current < flags.length-1;
+				activecard.innerHTML = secondcard.innerHTML;
+
+				cardqueue.dataset.reset = '1';
+				activecard.style.setProperty('--x', 0);
+				cardqueue.style.setProperty('--anim', 0);
+				activecard.dataset.flip = '0';
+				setTimeout(() => {
+					cardqueue.dataset.reset = '0';
+					cardqueue.dataset.ignore = '0';
+				}, 50);
+
+				info.textContent = `Quiz (${current}/${numflags})`;
+				if (current < flags.length-1) loadCard(current+1, secondcard);
+				else loadCard(current, activecard, true);
+			}, 100);
+		}
+
+		const release = e => {
+			if (cardqueue.dataset.drag != '1' || cardqueue.dataset.ignore == '1') return;
+			cardqueue.dataset.drag = '0';
+
+			delta = e.clientX - start;
+			if (Math.abs(delta) >= (mtarget*window.innerHeight)) swipe(delta > 0 ? 1 : -1);
+			else {
+				activecard.style.setProperty('--x', 0);
+				cardqueue.style.setProperty('--anim', 0);
+			}
+		};
+		document.addEventListener('pointerup', release);
+		document.addEventListener('pointercancel', release);
+
+		document.addEventListener('keydown', e => {
+			if (!active || cardqueue.dataset.ignore == '1') return;
+			if ([13, 32, 38, 40, 87, 83].includes(e.keyCode)) {
+				activecard.dataset.flip = '1';
+			} else if ([37, 65].includes(e.keyCode)) swipe(-1);
+			else if ([39, 68].includes(e.keyCode)) swipe(1);
+		});
+		activecard.onclick = () => {
+			if (active) activecard.dataset.flip = '1';
+			else window.location.reload();
+		};
+
+		function showError(e) {
+			active = false;
+			activefront = activecard.querySelector('.front');
+			activefront.innerHTML = '';
+			const ele = document.createElement('h2');
+			ele.textContent = 'Error: '+e;
+			activefront.appendChild(ele);
+			console.error('Error:', e);
+		}
+
+		let numflags;
+		fetch('/min_data.json').then(r => r.json()).then(d => {
+			let todo = Object.keys(d);
+			numflags = todo.length;
+			info.textContent = `Quiz (${current}/${numflags})`;
+
+			let n = 0;
+			while (todo.length > 0 && n < 200) {
+				n++;
+				const index = Math.floor(Math.random() * todo.length);
+				flags.push([todo[index], d[todo[index]]]);
+				todo.splice(index, 1);
+			}
+			flags.push(null);
+
+			current = 0;
+			loadCard(current, activecard);
+			loadCard(current+1, secondcard);
+			active = true;
+		}).catch(showError);
+	</script>
+</body>
+</html>
