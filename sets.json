@@ -8,15 +8,13 @@
 
 	"stan": ["Ending in -stan", "af", "kz", "pk", "tj", "tm", "uz", "kg"],
 	"pan-arab": ["Pan-Arab Colours", "eg", "jo", "kw", "ly", "iq", "sd", "sy", "ye", "ae", "om", "ir"],
-	"moon": ["Crescent and star", "dz", "az", "km", "mr", "pk", "tn", "tr", "uz", "my", "sg", "tm", "ly"],
-	"sun": ["Flags with a sun", "jp", "bd", "ar", "uy", "ph", "np", "mw", "ag", "ki", "na", "kz", "kg", "mk", "rw", "ne"],
-	"pairs": ["Identical flag pairs", "td", "ro", "id", "mc", "nl", "lu", "no", "is", "au", "nz", "pl", "at"],
-	"tricolour": ["Tricolours", "ve", "co", "ec", "si", "sk", "ru", "ie", "ci", "ml", "sn", "us", "lr", "my", "mx", "it"],
-	"union-jack": ["Union Jack Flags", "au", "nz", "fj", "tv"],
-	"nordic-cross": ["Nordic Cross Flags", "dk", "fi", "is", "no", "se"],
 	"pan-african": ["Pan-African Colors", "gh", "zw", "ke", "gn", "ml", "sn", "bf"],
 	"pan-slavic": ["Pan-Slavic Tricolors", "ru", "sk", "si", "rs"],
-	"mountain": ["Flags with mountains", "np", "ec", "bo", "cr", "ni", "sv"],
 	"red-white": ["Only red and white", "dk", "pl", "at", "id", "mc"],
-	"bird": ["Flags with a bird", "kz", "zw", "ec", "bo", "mx", "pe", "ve", "co", "cl", "gt"]
+	"tricolour": ["Tricolours", "ve", "co", "ec", "si", "sk", "ru", "ie", "ci", "ml", "sn", "us", "lr", "mx", "it"],
+	"pairs": ["Identical flag pairs", "td", "ro", "id", "mc", "nl", "lu", "no", "is", "au", "nz", "pl", "at"],
+	"union-jack": ["Union Jack Flags", "au", "nz", "fj", "tv"],
+	"nordic-cross": ["Nordic Cross Flags", "dk", "fi", "is", "no", "se"],
+	"moon": ["Crescent and star", "dz", "az", "km", "mr", "pk", "tn", "tr", "uz", "my", "sg", "tm", "ly"],
+	"sun": ["Flags with a sun", "jp", "bd", "ar", "uy", "ph", "np", "mw", "ag", "ki", "na", "kz", "kg", "mk", "rw", "ne"]
 }
