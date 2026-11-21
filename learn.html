@@ -7,14 +7,12 @@
 
 	<style>
 :root {
-	--bg: #111;
-	--fg: #222;
-	--fg2: #555;
+	--bg: #035;
+	--bgg: linear-gradient(135deg, #035, #112);
+	--fg: #48d;
 
 	--text: #fff;
 	--text-s: #fff5;
-	--link: #08f;
-	--link-s: #08f5;
 
 	--u: 1.5vw;
 	--top-height: calc(6 * var(--u));
@@ -31,6 +29,7 @@ body {
 	overflow-x: hidden;
 	position: relative;
 	background: var(--bg);
+	background: var(--bgg);
 	height: max-content;
 	min-height: 100vh;
 	min-height: 100dvh;
@@ -46,19 +45,19 @@ body::-webkit-scrollbar {
 	--h: 100px;
 	height: var(--h);
 	box-sizing: border-box;
-	background: rgba(245, 245, 255, .11);
+	background: #f5f5ff1c;
 	backdrop-filter: blur(20px);
-	border: calc(.2 * var(--u)) solid rgba(255, 255, 255, .12);
+	border: calc(.2 * var(--u)) solid #ffffff1f;
 	border-radius: calc(2 * var(--u));
-	box-shadow: inset 0 calc(.8 * var(--h)) calc(.4 * var(--h)) calc(-.4 * var(--h)) rgba(245, 245, 255, .06);
+	box-shadow: inset 0 calc(.8 * var(--h)) calc(.4 * var(--h)) calc(-.4 * var(--h)) #f5f5ff0f;
 
 	transition: .2s;
 
 	&:not(.nohover) {
 		&:hover {
-			background: rgba(245, 245, 255, .13);
-			box-shadow: inset 0 calc(.8 * var(--h)) calc(.4 * var(--h)) calc(-.4 * var(--h)) rgba(245, 245, 255, .08);
-			border-top-color: rgba(255, 255, 255, .15);
+			background: #f5f5ff21;
+			box-shadow: inset 0 calc(.8 * var(--h)) calc(.4 * var(--h)) calc(-.4 * var(--h)) #f5f5ff14;
+			border-top-color: #ffffff26;
 			transform: scale(1.02);
 		}
 		&:active {
@@ -102,33 +101,63 @@ body::-webkit-scrollbar {
 	}
 }
 
+#bottom {
+	position: absolute;
+	bottom: calc(1 * var(--u));
+	right: calc(1 * var(--u));
+
+	display: flex;
+	flex-direction: row-reverse;
+	gap: calc(.7 * var(--u));
+
+	a {
+		--c: #777;
+		background: #000;
+		border: 1px solid var(--c);
+		text-decoration: none;
+
+		margin: 0;
+		color: var(--c);
+		font-family: monospace;
+		font-size: calc(1.2 * var(--u));
+		line-height: calc(1.7 * var(--u));
+		padding: 0 calc(.5 * var(--u));
+		border-radius: calc(2 * var(--u));
+		transform-origin: center;
+		transition: .2s;
+
+		&:hover {
+			--c: #aaa;
+			transform: scale(1.03);
+		}
+		&:active {
+			transform: scale(0.95);
+		}
+	}
+}
+
 #queue {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 
-	width: 40vh;
-	height: 63vh;
+	width: calc(60 * var(--u));
+	height: calc(42 * var(--u));
 
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
 	z-index: 1;
 
-	perspective: round(120vh, 1px);
+	perspective: round(calc(120 * var(--u)), 1px);
 
 	&[data-reset="1"] .card {
 		transition: none;
 	}
-	&[data-drag="1"] {
-		.card .front * {
-			visibility: visible;
-		}
-		#active {
-			cursor: grabbing;
-			transition: none;
-		}
+	&[data-drag="1"] #active {
+		cursor: grabbing;
+		transition: none;
 	}
 }
 
@@ -138,13 +167,13 @@ body::-webkit-scrollbar {
 	display: inline-block;
 
 	width: 100%;
-	height: 60vh;
+	height: calc(40 * var(--u));
 
 	position: absolute;
 	box-sizing: border-box;
 
 	z-index: calc(4 - var(--n));
-	--t: translate(calc(var(--x)*1px), calc(3.5vh * (var(--n) - var(--anim)))) rotate(calc(var(--x) * .02deg)) scale(calc(1 - .1 * (var(--n) - var(--anim))), calc(1 - .07 * (var(--n) - var(--anim))));
+	--t: translate(calc(var(--x)*1px), calc(3 * var(--u) * (var(--n) - var(--anim)))) rotate(calc(var(--x) * .02deg)) scale(calc(1 - .1 * (var(--n) - var(--anim))), calc(1 - .07 * (var(--n) - var(--anim))));
 	transform: var(--t);
 	opacity: calc(1 - (1/9 * (var(--n) - var(--anim))*(var(--n) - var(--anim))));
 	transition: .1s;
@@ -159,20 +188,50 @@ body::-webkit-scrollbar {
 		width: 100%;
 		height: 100%;
 		box-sizing: border-box;
-		padding: 3vh;
 
 		overflow: hidden;
 
-		background: #fff;
-		border-radius: 2vh;
+		background: var(--fg);
+		border-radius: calc(2 * var(--u));
 
 		backface-visibility: hidden;
 		-webkit-backface-visibility: hidden;
+
+		h2 {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+
+			width: 100%;
+			text-align: center;
+			box-sizing: border-box;
+			padding: 0 calc(3 * var(--u));
+
+			font-size: calc(5 * var(--u));
+			font-weight: 700;
+		}
+		h2, p {
+			margin: 0;
+			font-family: Arial;
+			color: var(--text);
+		}
 	}
-	.front * {
-		visibility: hidden;
+	.front {
+		img {
+			height: 100%;
+			width: auto;
+			max-width: 100%;
+			object-fit: fill;
+
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
 	}
 	.back {
+		padding: calc(3 * var(--u));
 		transform: rotateY(180deg);
 	}
 	&[data-flip="1"] {
@@ -182,11 +241,7 @@ body::-webkit-scrollbar {
 #active {
 	cursor: grab;
 	user-select: none;
-	transition: .3s;
-
-	.front * {
-		visibility: visible;
-	}
+	transition: .4s;
 }
 
 @media screen and (min-aspect-ratio: 2/3) {
@@ -199,16 +254,16 @@ body::-webkit-scrollbar {
 <body>
 	<div id="top">
 		<a>flags.qwk.gg</a>
-		<p class="nohover">Learning: Example Deck Name</p>
+		<p class="nohover" id="info">Loading deck...</p>
 	</div>
 
 	<div id="queue" style="--anim: 0;">
 		<div class="card" style="--n: 0; --anim: 0;" id="active">
 			<div class="front">
-				<p>Loading...</p>
+				<h2>Loading...</h2>
 			</div>
 			<div class="back">
-				<p>Back</p>
+				<h2>Saint Vincent and the Grenadines</h2>
 			</div>
 		</div>
 		<div class="card" style="--n: 1;" id="second"><div class="front"><p>hello</p></div></div>
@@ -216,10 +271,17 @@ body::-webkit-scrollbar {
 		<div class="card" style="--n: 3;"><div class="front"></div></div>
 	</div>
 
+	<div id="bottom">
+		<a href="https://qwk.gg/" target="_blank">qwk.gg</a>
+	</div>
+
 	<script>
 		const mtarget = 200;
 		const mflip = 50;
+		let current = 0;
+		let active = false;
 
+		const info = document.getElementById('info');
 		const cardqueue = document.getElementById('queue');
 
 		async function wait(ms) {
@@ -250,36 +312,68 @@ body::-webkit-scrollbar {
 			cardqueue.style.setProperty('--anim', Math.min(Math.abs(delta)/mtarget, 1));
 		});
 
+		let flags = [];
+
+		function loadCard(fi, card) {
+			const f = flags[fi];
+			card.innerHTML = '';
+			const front = document.createElement('div');
+			front.classList.add('front');
+			
+			if (f) {
+				const img = document.createElement('img');
+				img.src = `/svg/${f[0]}.svg`;
+				img.draggable = false;
+				front.appendChild(img);
+			} else front.innerHTML = '<h2>Done!<br>Refresh to restart</h2>';
+
+			card.appendChild(front);
+
+			if (f) {
+				const back = document.createElement('div');
+				back.classList.add('back');
+
+				const name = document.createElement('h2');
+				name.textContent = f[1][0];
+				back.appendChild(name);
+
+				card.appendChild(back);
+			}
+		}
+
+		function swipe(dir) {
+			if (dir == -1) {
+				flags.push(flags[current]);
+			}
+
+			cardqueue.dataset.ignore = '1';
+			cardqueue.style.setProperty('--anim', 1);
+			activecard.style.setProperty('--x', window.innerWidth * dir);
+			setTimeout(async () => {
+				current++;
+				active = current < flags.length-1;
+				activecard.innerHTML = secondcard.innerHTML;
+
+				cardqueue.dataset.reset = '1';
+				activecard.style.setProperty('--x', 0);
+				cardqueue.style.setProperty('--anim', 0);
+				activecard.dataset.flip = '0';
+				setTimeout(() => {
+					cardqueue.dataset.reset = '0';
+					cardqueue.dataset.ignore = '0';
+				}, 50);
+
+				if (current < flags.length-1) loadCard(current+1, secondcard);
+			}, 100);
+		}
+
 		const release = e => {
 			if (cardqueue.dataset.drag != '1' || cardqueue.dataset.ignore == '1') return;
 			cardqueue.dataset.drag = '0';
 
 			delta = e.clientX - start;
-			if (Math.abs(delta) >= mtarget) {
-				cardqueue.dataset.ignore = '1';
-				cardqueue.style.setProperty('--anim', 1);
-				activecard.style.setProperty('--x', window.innerWidth * (delta > 0 ? 1 : -1));
-				setTimeout(async () => {
-					if (current < reviews.length-1) {
-						if (current >= 0) await edit(reviews[current][0], {
-							status: delta > 0 ? 1 : -1
-						});
-					}
-					current++;
-					active = current < reviews.length-1;
-					activecard.innerHTML = secondcard.innerHTML;
-
-					cardqueue.dataset.reset = '1';
-					activecard.style.setProperty('--x', 0);
-					cardqueue.style.setProperty('--anim', 0);
-					setTimeout(() => {
-						cardqueue.dataset.reset = '0';
-						cardqueue.dataset.ignore = '0';
-					}, 50);
-
-					if (current < reviews.length-1) loadReview(current+1, secondcard);
-				}, 100);
-			} else {
+			if (Math.abs(delta) >= mtarget) swipe(delta > 0 ? 1 : -1);
+			else {
 				activecard.style.setProperty('--x', 0);
 				cardqueue.style.setProperty('--anim', 0);
 				if (Math.abs(delta) <= mflip) activecard.dataset.flip = activecard.dataset.flip == '1' ? '0' : '1';
@@ -287,6 +381,47 @@ body::-webkit-scrollbar {
 		};
 		document.addEventListener('pointerup', release);
 		document.addEventListener('pointercancel', release);
+
+		document.addEventListener('keydown', e => {
+			if (!active || cardqueue.dataset.ignore == '1') return;
+			if ([13, 32, 38, 40, 87, 83].includes(e.keyCode)) {
+				activecard.dataset.flip = activecard.dataset.flip == '1' ? '0' : '1';
+			} else if ([37, 65].includes(e.keyCode)) swipe(-1);
+			else if ([39, 68].includes(e.keyCode)) swipe(1);
+		});
+
+		function showError(e) {
+			active = false;
+			activefront = activecard.querySelector('.front');
+			activefront.innerHTML = '';
+			const ele = document.createElement('h2');
+			ele.textContent = 'Error: '+e;
+			activefront.appendChild(ele);
+			console.error('Error:', e);
+		}
+
+		const set = window.location.search.slice(1);
+		fetch('/sets.json').then(r => r.json()).then(sd => {
+			if (!Object.hasOwn(sd, set)) showError('Invalid Set');
+			fetch('/min_data.json').then(r => r.json()).then(d => {
+				info.textContent = 'Learning: ' + sd[set][0];
+
+				let todo = sd[set].slice(1);
+				let n = 0;
+				while (todo.length > 0 && n < 200) {
+					n++;
+					const index = Math.floor(Math.random() * todo.length);
+					flags.push([todo[index], d[todo[index]]]);
+					todo.splice(index, 1);
+				}
+				flags.push(null);
+
+				current = 0;
+				loadCard(current, activecard);
+				loadCard(current+1, secondcard);
+				active = true;
+			});
+		}).catch(showError);
 	</script>
 </body>
 </html>
